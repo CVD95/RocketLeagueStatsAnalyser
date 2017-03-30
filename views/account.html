@@ -3,12 +3,11 @@
 <table class="table">
     <thead>
         <tr>
-            <th>Userid</th><th>Rank</th>
+            <th>Rank</th>
         </tr>
     </thead>
     <tbody>
         <tr>
-            <td>{{currentuser.id}}</td>
             <td>
                 <span ng-hide="user.updating">{{currentuser.rank}}</span>
                 <select class="form-control" ng-model="currentuser.rank" ng-options="rank for rank in ranks" ng-show="currentuser.updating"></select>

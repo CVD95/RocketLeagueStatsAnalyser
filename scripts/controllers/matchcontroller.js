@@ -34,6 +34,7 @@ rlStatsAnalyserApp.controller('MatchController', function($scope, $location, Use
 			music: $scope.newMatch.music
 		});
 		localStorage.setItem("matches", JSON.stringify($scope.matches));
+		$location.path("/matches");
 	};
 
 	$scope.getMaxId = function(matchArray){

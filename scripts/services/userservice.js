@@ -1,11 +1,6 @@
 rlStatsAnalyserAppServices.service('UserService', function(){
     var user;
-	var users = [
-        {id:1, username:"xzite", password:"xzite"},
-        {id:2, username:"rimmen", password:"rimmen"}
-    ];
 	var localusers = JSON.parse(localStorage.getItem("users"));
-
     if(localusers != undefined && localusers.length>0) {
 		users = localusers;
 	}
@@ -13,6 +8,10 @@ rlStatsAnalyserAppServices.service('UserService', function(){
         return user;
     };
     this.login = function(username, password) {
+        var localusers = JSON.parse(localStorage.getItem("users"));
+        if(localusers != undefined && localusers.length>0) {
+            users = localusers;
+        }
         console.log("login username: " + username + " password: "+password);
         users.forEach(function(item) {
             if(item.username === username && item.password === password) {
@@ -20,7 +19,7 @@ rlStatsAnalyserAppServices.service('UserService', function(){
             }
         });
     };
-    this.loggedIn(){
-        return 
+    this.loggedIn= function(){
+        return (user != undefined);
     }
 });
