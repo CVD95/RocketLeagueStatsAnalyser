@@ -1,0 +1,23 @@
+<h1>Welcome {{currentuser.username}}</h1>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Userid</th><th>Rank</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>{{currentuser.id}}</td>
+            <td>
+                <span ng-hide="user.updating">{{currentuser.rank}}</span>
+                <select class="form-control" ng-model="currentuser.rank" ng-options="rank for rank in ranks" ng-show="currentuser.updating"></select>
+            </td>
+            <td>
+                <button type="button" class="btn btn-success" ng-click="updateUser(currentuser)" ng-show="currentuser.updating">Save</button>
+                <button type="button" class="btn btn-warning" ng-click="currentuser.updating=true;" ng-hide="currentuser.updating">Update</button>
+                <button type="button" class="btn btn-danger" ng-click="logout()">Logout</button>
+            </td>
+        </tr>
+    </tbody>
+</table>

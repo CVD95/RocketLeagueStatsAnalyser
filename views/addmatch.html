@@ -1,0 +1,32 @@
+<h1>{{pageTitle}}</h1>
+
+<form name="addMatchForm">
+	  <div class="form-group">
+			<label for="itemInput">Type</label>
+			<select class="form-control" ng-model="newMatch.type" ng-options="type for type in types"></select>
+		</div>
+		<div class="form-group">
+	    <label for="itemInput">Competitive</label>
+	    <input type="checkbox" ng-model="newMatch.competitive">
+	  </div>
+		<div class="form-group">
+	    <label for="itemInput">Result</label>
+	    <input type="radio" ng-model="newMatch.result" value="win">Win
+  		<input type="radio" ng-model="newMatch.result" value="loss">Loss
+	  </div>
+		<div class="form-group">
+		<label for="itemInput">Time started</label>
+		<input ng-model="newMatch.timestarted" type="time" placeholder="HH:mm" required >
+		</div>
+		<div class="form-group">
+			<label for="itemInput">Day of the week</label>
+	  	<select class="form-control" ng-model="newMatch.dayoftheweek" ng-options="day for day in days">
+			</select>
+		</div>
+		<div class="form-group">
+	    <label for="itemInput">Music</label>
+	    <input type="checkbox" ng-model="newMatch.music">
+	  </div>
+	  <button type="button" class="btn btn-danger">Reset</button>
+	  <button ng-disabled="addMatchForm.$invalid" type="submit" class="btn btn-primary" ng-click="saveMatch()">Save</button>
+	</form>

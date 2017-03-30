@@ -1,0 +1,17 @@
+{
+  "name": "studentenapp",
+  "version": "0.0.1",
+  "description": "demo studenten applicatie",
+  "main": "index.js",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "prestart": "npm install",
+    "test": "karma start test/karma.conf.js",
+    "postinstall": "bower install",
+    "start": "http-server . -a localhost -p 8080 -c-1"
+  },
+  "author": "Dominic Jahangier",
+  "license": "ISC"
+}
