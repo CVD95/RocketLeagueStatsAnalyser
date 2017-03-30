@@ -1,0 +1,125 @@
+<h1>Match details</h1>
+<div>
+    <h2>Match</h2>
+    <table class="table">
+    	<thead>
+    		<tr>
+    			<th>Attribute</th><th>Value</th>
+    		</tr>
+    	</thead>
+    	<tbody>
+    		<tr>
+                <td>Id</td>
+                <td>{{currentMatch.id}}</td>
+    		</tr>
+            <tr>
+                <td>Type</td>
+                <td>
+                    <span ng-hide="currentMatch.updating">{{currentMatch.type}}</span>
+                    <select class="form-control" ng-model="currentMatch.type" ng-options="type for type in types" ng-show="currentMatch.updating"></select>
+                </td>
+    		</tr>
+            <tr>
+                <td>Result</td>
+                <td>
+                    <span ng-hide="currentMatch.updating">{{currentMatch.result}}</span>
+                    <input type="radio" ng-model="currentMatch.result" value="win" ng-show="currentMatch.updating">Win</input>
+                    <input type="radio" ng-model="currentMatch.result" value="loss" ng-show="currentMatch.updating">Loss</input>
+                </td>
+    		</tr>
+            <tr>
+                <td>Competitive</td>
+                <td>
+                    <input type="checkbox" ng-model="currentMatch.competitive" ng-disabled="!currentMatch.updating">
+                </td>
+    		</tr>
+            <tr>
+                <td>TimeStarted</td>
+                <td>
+                    <span ng-hide="currentMatch.updating">{{currentMatch.timestarted | date : "HH:mm"}}</span>
+                    <input ng-model="currentMatch.timestarted" type="time" ng-show="currentMatch.updating" placeholder="HH:mm">
+                </td>
+    		</tr>
+            <tr>
+                <td>DayOfTheWeek</td>
+                <td>{{currentMatch.dayoftheweek}}</td>
+    		</tr>
+            <tr>
+                <td>Music</td>
+                <td>
+                    <input type="checkbox" ng-model="currentMatch.music" ng-disabled="!currentMatch.updating">
+                </td>
+    		</tr>
+            <tr>  
+                <td>
+                    <button type="button" class="btn btn-success" ng-click="updateMatch(currentMatch)" ng-show="currentMatch.updating">Save</button>
+                    <button type="button" class="btn btn-warning" ng-click="currentMatch.updating=true;" ng-hide="currentMatch.updating">Update</button>
+                    <button type="button" class="btn btn-danger" ng-click="deleteMatch(currentMatch)">Delete</button>
+                </td>
+    		</tr>
+    	</tbody>
+    </table>
+    <hr>
+</div>
+<div>
+    <h2>Score</h2>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Attribute</th><th>Value</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>Points</td>
+                <td>{{currentMatch.score.points}}</td>
+            </tr>
+            <tr>
+                <td>Type</td>
+                <td>
+                    <span ng-hide="currentMatch.updating">{{currentMatch.type}}</span>
+                    <select class="form-control" ng-model="currentMatch.type" ng-options="type for type in types" ng-show="currentMatch.updating"></select>
+                </td>
+            </tr>
+            <tr>
+                <td>Result</td>
+                <td>
+                    <span ng-hide="currentMatch.updating">{{currentMatch.result}}</span>
+                    <input type="radio" ng-model="currentMatch.result" value="win" ng-show="currentMatch.updating">Win</input>
+                    <input type="radio" ng-model="currentMatch.result" value="loss" ng-show="currentMatch.updating">Loss</input>
+                </td>
+            </tr>
+            <tr>
+                <td>Competitive</td>
+                <td>
+                    <input type="checkbox" ng-model="currentMatch.competitive" ng-disabled="!currentMatch.updating">
+                </td>
+            </tr>
+            <tr>
+                <td>TimeStarted</td>
+                <td>
+                    <span ng-hide="currentMatch.updating">{{currentMatch.timestarted | date : "HH:mm"}}</span>
+                    <input ng-model="currentMatch.timestarted" type="time" ng-show="currentMatch.updating" placeholder="HH:mm">
+                </td>
+            </tr>
+            <tr>
+                <td>DayOfTheWeek</td>
+                <td>{{currentMatch.dayoftheweek}}</td>
+            </tr>
+            <tr>
+                <td>Music</td>
+                <td>
+                    <input type="checkbox" ng-model="currentMatch.music" ng-disabled="!currentMatch.updating">
+                </td>
+            </tr>
+            <tr>  
+                <td>
+                    <button type="button" class="btn btn-success" ng-click="updateMatch(currentMatch)" ng-show="currentMatch.updating">Save</button>
+                    <button type="button" class="btn btn-warning" ng-click="currentMatch.updating=true;" ng-hide="currentMatch.updating">Update</button>
+                    <button type="button" class="btn btn-danger" ng-click="deleteMatch(currentMatch)">Delete</button>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <hr>
+</div>

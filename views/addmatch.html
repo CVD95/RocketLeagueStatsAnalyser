@@ -1,6 +1,7 @@
-<h1>{{pageTitle}}</h1>
-
+<h1>Add match</h1>
 <form name="addMatchForm">
+	<div class="form-section">
+	<h2>Match</h2>
 	  <div class="form-group">
 			<label for="itemInput">Type</label>
 			<select class="form-control" ng-model="newMatch.type" ng-options="type for type in types"></select>
@@ -27,6 +28,43 @@
 	    <label for="itemInput">Music</label>
 	    <input type="checkbox" ng-model="newMatch.music">
 	  </div>
+		</hr>
+	</div>
+	<div class="form-section">
+		<h2>Score</h2>
+		<div class="form-group">
+	    <label for="itemInput">Points</label>
+	    <input type="number" ng-model="newMatch.score.points">
+	  </div>
+		<div class="form-group">
+	    <label for="itemInput">Goals</label>
+	    <input type="number" ng-model="newMatch.score.goals">
+	  </div>
+		<div class="form-group">
+	    <label for="itemInput">Assists</label>
+	    <input type="number" ng-model="newMatch.score.assists">
+	  </div>
+		<div class="form-group">
+	    <label for="itemInput">Saves</label>
+	    <input type="number" ng-model="newMatch.score.saves">
+	  </div>
+		<div class="form-group">
+	    <label for="itemInput">Shots</label>
+	    <input type="number" ng-model="newMatch.score.shots">
+	  </div>
+		</hr>
+	</div>
+		<div class="form-section">
+		<h2>Car</h2>
+		<div class="form-group">
+	    <label for="itemInput">Car</label>
+			<select class="form-control" ng-model="newMatch.car.name" ng-options="car for car in cars"></select>
+	  </div>
+		<div class="form-group">
+	    <label for="itemInput">Boost</label>
+			<select class="form-control" ng-model="newMatch.car.boost" ng-options="boost for boost in boosts"></select>
+	  </div>
+		</div>
 	  <button type="button" class="btn btn-danger">Reset</button>
 	  <button ng-disabled="addMatchForm.$invalid" type="submit" class="btn btn-primary" ng-click="saveMatch()">Save</button>
 	</form>

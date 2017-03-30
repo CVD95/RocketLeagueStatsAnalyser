@@ -17,6 +17,10 @@ rlStatsAnalyserApp.config(function($routeProvider) {
             templateUrl: 'views/matches.html',
             controller: 'MatchController'
         })
+        .when('/match/:id', {
+            templateUrl: 'views/match.html',
+            controller: 'MatchController'
+        })
         .when('/addmatch', {
             templateUrl : 'views/addmatch.html',
             controller : 'MatchController'

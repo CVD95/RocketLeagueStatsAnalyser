@@ -11,7 +11,7 @@
     		</tr>
     	</thead>
     	<tbody>
-    		<tr ng-repeat="match in matches | filter: searchTerm">
+    		<tr ng-repeat="match in matches | filter: searchTerm" ng-click="matchDetails(match.id)">
                 <td>{{match.id}}</td>
                 <td>
                     <span ng-hide="match.updating">{{match.type}}</span>
