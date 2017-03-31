@@ -14,6 +14,9 @@
   padding-left: 160px;
 }
 
+.container{
+  width:80%;
+}
 /* On using dropdown menu (To right shift popuped) */
 .navbar-fixed-left .navbar-nav > li > .dropdown-menu {
   margin-top: -50px;
@@ -41,20 +44,39 @@
     color: red;
   }
 
-  .form-section{
+ .form-section{
     background-color: white;
-    width: 40%;
-    margin: 1em;
+    width: 400px;
+    height: 400px;
+    margin: 0 0 1em 1em; 
     padding: 1em;
     float: left;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
   }
+   .form-group > label{
+    width: 30%;
+    float:left;
+  }
+  .form-group > select{
+    width: 70%;
+  }
+.form-section > button{
+    margin-right: 1em;
+    position: center;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  }
 
-  
-  .container{
-     background: white; /* For browsers that do not support gradients */
-    background: -webkit-linear-gradient(white, lightslategrey); /* For Safari 5.1 to 6.0 */
-    background: -o-linear-gradient(white, lightslategrey); /* For Opera 11.1 to 12.0 */
-    background: -moz-linear-gradient(white, lightslategrey); /* For Firefox 3.6 to 15 */
+  body{
+     background: white; /* For browsers that do not support gradients 
+    background: -webkit-linear-gradient(white, lightslategrey); /* For Safari 5.1 to 6.0 
+    background: -o-linear-gradient(white, lightslategrey); /* For Opera 11.1 to 12.0 
+    background: -moz-linear-gradient(white, lightslategrey); /* For Firefox 3.6 to 15 
     background: linear-gradient(white, lightslategrey); /* Standard syntax */
   }
+  .table{
+      margin-top:1em;
+      box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  }
+.table-hover tbody tr:hover td {   
+  background:#eeeee9;
+ }

@@ -4,39 +4,32 @@
 	      <input type="text" class="form-control" placeholder="Search for..." ng-model="searchTerm">
 	    </div>
 </div>
-<table class="table">
+<table class="table table-hover">
     	<thead>
     		<tr>
-    			<th>Id</th><th>Type</th><th>Result</th><th>Competitive</th><th>TimeStarted</th><th>DayOfTheWeek</th><th>Music</th><th></th>
+    			<th>Id</th><th>Type</th><th>Result</th><th>Competitive</th><th>TimeStarted</th><th>DayOfTheWeek</th><th>Music</th>
     		</tr>
     	</thead>
     	<tbody>
-    		<tr ng-repeat="match in matches | filter: searchTerm" ng-click="matchDetails(match.id)">
+    		<tr ng-repeat="match in matches | filter: searchTerm | filter:{playername: currentuser.username}" ng-click="matchDetails(match.id)">
                 <td>{{match.id}}</td>
                 <td>
-                    <span ng-hide="match.updating">{{match.type}}</span>
-                    <select class="form-control" ng-model="match.type" ng-options="type for type in types" ng-show="match.updating"></select>
+                    {{match.type}}
                 </td>
                 <td>
-                    <span ng-hide="match.updating">{{match.result}}</span>
-                    <input type="radio" ng-model="match.result" value="win" ng-show="match.updating">Win</input>
-                    <input type="radio" ng-model="match.result" value="loss" ng-show="match.updating">Loss</input>
+                    {{match.result}}
                 </td>
                 <td>
-                    <input type="checkbox" ng-model="match.competitive" ng-disabled="!match.updating">
+                    <input type="checkbox" ng-model="match.competitive" ng-disabled="true">
                 </td>
                 <td>
-                    <span ng-hide="match.updating">{{match.timestarted | date : "HH:mm"}}</span>
-                    <input ng-model="match.timestarted" type="time" ng-show="match.updating" placeholder="HH:mm">
-                </td>
-                <td>{{match.dayoftheweek}}</td>
-                <td>
-                    <input type="checkbox" ng-model="match.music" ng-disabled="!match.updating">
+                    {{match.timestarted | date : "HH:mm"}}
                 </td>
                 <td>
-                    <button type="button" class="btn btn-success" ng-click="updateMatch(match)" ng-show="match.updating">Save</button>
-                    <button type="button" class="btn btn-warning" ng-click="match.updating=true;" ng-hide="match.updating">Update</button>
-                    <button type="button" class="btn btn-danger" ng-click="deleteMatch(match)">Delete</button>
+                    {{match.dayoftheweek}}
+                </td>
+                <td>
+                    <input type="checkbox" ng-model="match.music" ng-disabled="true">
                 </td>
     		</tr>
 

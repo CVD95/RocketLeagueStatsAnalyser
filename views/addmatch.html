@@ -55,16 +55,16 @@
 		</hr>
 	</div>
 		<div class="form-section">
-		<h2>Car</h2>
-		<div class="form-group">
-	    <label for="itemInput">Car</label>
-			<select class="form-control" ng-model="newMatch.car.name" ng-options="car for car in cars"></select>
-	  </div>
-		<div class="form-group">
-	    <label for="itemInput">Boost</label>
-			<select class="form-control" ng-model="newMatch.car.boost" ng-options="boost for boost in boosts"></select>
-	  </div>
+			<h2>Car</h2>
+			<div class="form-group">
+				<label for="itemInput">Car</label>
+				<select class="form-control" ng-model="newMatch.car.name" ng-options="car for car in cars"></select>
+			</div>
+			<div class="form-group">
+				<label for="itemInput">Boost</label>
+				<select class="form-control" ng-model="newMatch.car.boost" ng-options="boost for boost in boosts"></select>
+			</div>
+			  	<button type="button" class="btn btn-danger">Reset</button>
+	  			<button ng-disabled="addMatchForm.$invalid" type="submit" class="btn btn-primary" ng-click="saveMatch()">Save</button>
 		</div>
-	  <button type="button" class="btn btn-danger">Reset</button>
-	  <button ng-disabled="addMatchForm.$invalid" type="submit" class="btn btn-primary" ng-click="saveMatch()">Save</button>
 	</form>

@@ -1,4 +1,4 @@
-rlStatsAnalyserApp.controller('MatchController', function($scope, $location, $routeParams, UserService) {
+rlStatsAnalyserApp.controller('MatchController', function($scope, $rootScope, $location, $routeParams, UserService) {
 	$scope.pageTitle = "Matches";
 	$scope.types = ["1v1", "2v2", "3v3", "Solo 3v3", "4v4", "Snow Day", "Hoops"];
 	$scope.days = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"];
@@ -35,6 +35,11 @@ rlStatsAnalyserApp.controller('MatchController', function($scope, $location, $ro
 	var currentId = $routeParams.id;
 	var localmatches = JSON.parse(localStorage.getItem("matches"));
 
+	$rootScope.currentuser = JSON.parse(localStorage.getItem("currentuser"));
+    $rootScope.loggedIn = ($rootScope.currentuser != undefined);
+    if($rootScope.loggedIn){
+       $rootScope.loggedIn = ($rootScope.currentuser.username.length > 0);
+    }
 	if(localmatches != undefined && localmatches.length>0) {
 		$scope.matches = localmatches;
 	}
@@ -58,11 +63,34 @@ rlStatsAnalyserApp.controller('MatchController', function($scope, $location, $ro
 		localStorage.setItem("matches", JSON.stringify($scope.matches));
 	};
 
+	$scope.deleteScore = function(score) {
+		var deleteIndex = -1;
+		$scope.matches.forEach(function(e, i) {
+			if(e.score.name === score.name && e.car.boost === score.boost) {
+				deleteIndex = i;
+			}
+		});
+		$scope.matches[deleteIndex].car = undefined;
+		localStorage.setItem("matches", JSON.stringify($scope.matches));
+	};
+
+	$scope.deleteCar = function(car) {
+		var deleteIndex = -1;
+		$scope.matches.forEach(function(e, i) {
+			if(e.car.name === car.name && e.car.boost === car.boost) {
+				deleteIndex = i;
+			}
+		});
+		$scope.matches[deleteIndex].car = undefined;
+		localStorage.setItem("matches", JSON.stringify($scope.matches));
+	};
+
     $scope.saveMatch = function() {
 		console.log($scope.newMatch);
 		var maxId = $scope.getMaxId($scope.matches);
 		$scope.matches.push({
 			id: maxId +1,
+			playername: $rootScope.currentuser.username,
 			type: $scope.newMatch.type,
 			competitive: $scope.newMatch.competitive,
 			result: $scope.newMatch.result,
@@ -91,6 +119,16 @@ rlStatsAnalyserApp.controller('MatchController', function($scope, $location, $ro
 
     $scope.updateMatch = function(match) {
 		match.updating=false;
+		localStorage.setItem("matches", JSON.stringify($scope.matches));
+	};
+
+	$scope.updateCar = function(car) {
+		car.updating=false;
+		localStorage.setItem("matches", JSON.stringify($scope.matches));
+	};
+
+	$scope.updateScore = function(score) {
+		score.updating=false;
 		localStorage.setItem("matches", JSON.stringify($scope.matches));
 	};
 });
