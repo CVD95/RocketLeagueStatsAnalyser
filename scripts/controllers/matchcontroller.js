@@ -34,12 +34,8 @@ rlStatsAnalyserApp.controller('MatchController', function($scope, $rootScope, $l
 	$scope.currentMatch;
 	var currentId = $routeParams.id;
 	var localmatches = JSON.parse(localStorage.getItem("matches"));
-
-	$rootScope.currentuser = JSON.parse(localStorage.getItem("currentuser"));
-    $rootScope.loggedIn = ($rootScope.currentuser != undefined);
-    if($rootScope.loggedIn){
-       $rootScope.loggedIn = ($rootScope.currentuser.username.length > 0);
-    }
+	$rootScope.currentuser = UserService.getCurrentUser();
+    $rootScope.loggedIn = UserService.loggedIn();
 	if(localmatches != undefined && localmatches.length>0) {
 		$scope.matches = localmatches;
 	}
@@ -106,7 +102,7 @@ rlStatsAnalyserApp.controller('MatchController', function($scope, $rootScope, $l
 
 	$scope.getMaxId = function(matchArray){
 		if(matchArray != undefined && matchArray.length>0) {
-			return Math.max.apply(Math,$scope.matches.map(function(matchArray){return matchArray.id;}));
+			return Math.max.apply(Math,matchArray.map(function(item){return item.id;}));
 		}
 		else{
 			return 0;

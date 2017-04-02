@@ -1,7 +1,6 @@
-var rlStatsAnalyserAppFilters = angular.module('rlStatsAnalyserApp.filters', []);
 var rlStatsAnalyserAppServices = angular.module('rlStatsAnalyserApp.services', []);
 
-var rlStatsAnalyserApp = angular.module('rlStatsAnalyserApp', ['ngRoute', 'rlStatsAnalyserApp.filters', 'rlStatsAnalyserApp.services']);
+var rlStatsAnalyserApp = angular.module('rlStatsAnalyserApp', ['ngRoute', 'rlStatsAnalyserApp.services']);
 
 rlStatsAnalyserApp.config(function($routeProvider) {
     $routeProvider

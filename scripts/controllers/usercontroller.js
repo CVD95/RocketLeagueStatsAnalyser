@@ -2,11 +2,10 @@ rlStatsAnalyserApp.controller('UserController', function($rootScope, $scope, $lo
 	$scope.pageTitle = "Login";
 
 	$scope.loginMessage ="";
-	$rootScope.currentuser = JSON.parse(localStorage.getItem("currentuser"));
-	$rootScope.loggedIn = ($rootScope.currentuser != undefined);
-    if($rootScope.loggedIn){
-       $rootScope.loggedIn = ($rootScope.currentuser.username.length > 0);
-    }
+	$rootScope.currentuser = UserService.getCurrentUser();
+    $rootScope.loggedIn = UserService.loggedIn();
+	console.log($rootScope.currentuser);
+	console.log($rootScope.loggedIn);
 	$scope.users = [];
 	var localusers = JSON.parse(localStorage.getItem("users"));
 
@@ -62,11 +61,8 @@ rlStatsAnalyserApp.controller('UserController', function($rootScope, $scope, $lo
 
     $scope.login = function() {
 		UserService.login($scope.user.username, $scope.user.password);
-		$rootScope.currentuser = JSON.parse(localStorage.getItem("currentuser"));
-		$rootScope.loggedIn = ($rootScope.currentuser != undefined);
-		if($rootScope.loggedIn){
-       		$rootScope.loggedIn = ($rootScope.currentuser.username.length > 0);
-   		}
+		$rootScope.currentuser = UserService.getCurrentUser();
+		$rootScope.loggedIn = UserService.loggedIn();
 		if(!$rootScope.loggedIn){
 			$scope.loginMessage = "Unknown username or password";
 		}
@@ -75,7 +71,7 @@ rlStatsAnalyserApp.controller('UserController', function($rootScope, $scope, $lo
 		}
     };
 	$scope.logout = function() {
-		localStorage.removeItem("currentuser");
+		UserService.logout();
 		$location.path("/login");
     };
 });
