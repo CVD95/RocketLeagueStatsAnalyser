@@ -46,7 +46,7 @@ rlStatsAnalyserApp.run( function($rootScope, $location) {
     $rootScope.$on( "$routeChangeStart", function(event, next, current) {
       if (JSON.parse(localStorage.getItem("currentuser")) == undefined) {
         // no logged user, we should be going to #login
-        if ( next.templateUrl == "views/login.html" || next.templateUrl == "views/register.html" ) {
+        if ( next.templateUrl == "views/login.html" || next.templateUrl == "views/home.html" || next.templateUrl == "views/about.html" || next.templateUrl == "views/register.html" ) {
           // already going to #login, no redirect needed
         } else {
           // not going to #login, we should redirect now
