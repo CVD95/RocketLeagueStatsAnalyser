@@ -4,7 +4,6 @@ describe('MatchController', function() {
 
     beforeEach(function() {
         module('rlStatsAnalyserApp');
-        console.log("1");
     });
 
     beforeEach(inject(function($controller, $rootScope) {
@@ -13,20 +12,12 @@ describe('MatchController', function() {
             $scope: scope
         });
     }));
-    /*beforeEach(
-        inject(function ($controller, $rootScope) {
-        //$location = _$location_;
-        scope = $rootScope.$new();
-        controller = ('MatchController', {
-                $scope : scope
-        });
-    }));*/
 
     it('should instantiate', function() {
         expect(ctrl).toBeDefined();
     });
 
-    it('should attach a list of awesomeThings to the scope', function() {
+    it('should get the variable page title', function() {
         expect(scope.pageTitle).toEqual('Matches');
     });
 
