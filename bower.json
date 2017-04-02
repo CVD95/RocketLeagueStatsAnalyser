@@ -1,9 +1,9 @@
 {
-  "name": "studentenapp",
-  "description": "demo studenten applicatie",
+  "name": "rlstatsanalyser",
+  "description": "app to analyse your Rocket League matches",
   "main": "index.js",
   "authors": [
-    "Dominic Jahangier"
+    "Cornelis van Dam"
   ],
   "license": "ISC",
   "homepage": "",

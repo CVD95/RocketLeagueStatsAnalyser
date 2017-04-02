@@ -1,7 +1,7 @@
 {
-  "name": "studentenapp",
-  "version": "0.0.1",
-  "description": "demo studenten applicatie",
+  "name": "rlstatsanalyser",
+  "version": "1.0.0",
+  "description": "app to analyse your Rocket League matches",
   "main": "index.js",
   "directories": {
     "test": "test"
@@ -12,6 +12,6 @@
     "postinstall": "bower install",
     "start": "http-server . -a localhost -p 8080 -c-1"
   },
-  "author": "Dominic Jahangier",
+  "author": "Cornelis van Dam",
   "license": "ISC"
 }
